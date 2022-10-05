@@ -8,14 +8,9 @@ import org.springframework.context.annotation.Primary;
 public class MyConfig {
 
     /*
-    since we use two beans of the same type, we must explicitly declare
+    since we have many beans of the same type, we must explicitly declare
     which one will be created by default with @Primary
      */
-
-    @Bean
-    public Person getEmployee(){
-        return new Employee();
-    }
 
     @Bean
     @Primary
