@@ -2,6 +2,7 @@ package com.github.kalininaleksandrv.workwithcontext;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +23,7 @@ public class MyContextRegistrar implements ApplicationContextAware {
                 applicationContext.getAutowireCapableBeanFactory();
         BeanDefinitionRegistry registry = (BeanDefinitionRegistry) factory;
         GenericBeanDefinition gbd = new GenericBeanDefinition();
+        gbd.setScope(BeanDefinition.SCOPE_SINGLETON);
         gbd.setBeanClass(SomeService.class);
         gbd.getPropertyValues().addPropertyValue("bound", 100);
 

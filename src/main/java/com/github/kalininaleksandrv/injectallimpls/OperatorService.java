@@ -20,6 +20,7 @@ public class OperatorService {
     public OperatorService(List<Operator> operators) {
         /*
         then we transform list to map with class names to chose exact implementation lately
+        for single responsibility this logic could be extract to separated bean
          */
         this.operators = operators.stream()
                 .collect(Collectors.toMap(k -> k.getClass().getSimpleName(), Function.identity()));
