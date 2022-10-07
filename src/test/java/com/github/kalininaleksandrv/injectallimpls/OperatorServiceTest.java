@@ -18,7 +18,21 @@ class OperatorServiceTest {
 
     @Test
     void performOperations() {
-        assertEquals("data after operator 1  after operator 2  after operator 3 ",
-                operatorService.performOperations());
+        assertAll(
+                () -> assertTrue(operatorService.performOperations().contains("operator 1")),
+                () -> assertTrue(operatorService.performOperations().contains("operator 2")),
+                () -> assertTrue(operatorService.performOperations().contains("operator 3")));
+    }
+
+    @Test
+    void performExactOperations() {
+        assertEquals("data after operator 2 ", operatorService.performExactOperations("SecondOperator"));
+    }
+
+    @Test
+    void performExactOperationUnknownOperator() {
+        RuntimeException ex = assertThrows(RuntimeException.class,
+                () -> operatorService.performExactOperations("unknown"));
+        assertEquals("Operator not found", ex.getMessage());
     }
 }
