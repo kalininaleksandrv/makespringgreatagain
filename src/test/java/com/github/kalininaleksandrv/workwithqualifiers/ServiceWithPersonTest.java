@@ -20,10 +20,14 @@ class ServiceWithPersonTest {
     @Autowired
     ServiceWithAdmin serviceWithAdmin;
 
+    @Autowired
+    ServiceWithTUZ serviceWithTUZ;
+
     @Test
     void whatPerson() {
         assertEquals("user", serviceWithUser.whatPerson());
         assertEquals("employee", serviceWithEmployee.whatPerson());
         assertEquals("admin", serviceWithAdmin.whatPerson());
+        assertEquals("TUZ-V1 TUZ-V2", serviceWithTUZ.whatPerson());
     }
 }
