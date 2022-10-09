@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Version1
 public class PersonController {
 
     @GetMapping(value = "/persons/{id}")
