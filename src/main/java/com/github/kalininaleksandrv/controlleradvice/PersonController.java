@@ -26,4 +26,12 @@ public class PersonController {
     ResponseEntity<List<Person>> getAllPersons() {
         return new ResponseEntity<>(List.of(new Person(1, "John"), new Person(2, "Jane")), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/admins")
+    /*
+    this method demonstrate ability of wrapper to wrap elements inside collection
+     */
+    ResponseEntity<List<Person>> getAllAdmins() {
+        return new ResponseEntity<>(List.of(new Person(1, "John"), new Person(2, "Jane")), HttpStatus.OK);
+    }
 }
