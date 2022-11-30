@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Version1
+@Version1 //only controllers, annotated Version1 will be processed with ControlledAdvice (see "annotation" param)
 public class PersonController {
 
     @GetMapping(value = "/persons/{id}")
