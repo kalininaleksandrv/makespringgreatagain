@@ -28,7 +28,7 @@ public class AddressController {
                     .getAllErrors().stream()
                     .map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .collect(Collectors.joining(", "));
-            return new ResponseEntity<>(reason, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("{ \"error\": \"" + reason + "\"}", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(address, HttpStatus.OK);
     }
