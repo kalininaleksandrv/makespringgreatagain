@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @RequiredArgsConstructor
-public class OpenApiUserController implements V1Api {
+public class OpenApiUserController implements UserApi {
 
     private final DumbUserService dumbUserService;
 

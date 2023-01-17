@@ -5,11 +5,16 @@ info:
   contact:
     email: just@mail.me
   version: 0.1.0
+tags:
+  - name: user
+    description: Everything about User
+servers:
+  - url: /v1
 paths:
-  /v1/user/{userId}:
+  /user/{userId}:
     get:
       tags:
-        - primary
+        - user
       summary: Get user by id
       description: Getting the user by its ID
       operationId: getUserById
@@ -32,10 +37,10 @@ paths:
           description: User not found
         405:
           description: Validation exception
-  /v1/user:
+  /user:
     post:
       tags:
-        - primary
+        - user
       summary: Add user
       description: adding new user
       operationId: addUser
