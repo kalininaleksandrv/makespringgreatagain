@@ -11,3 +11,6 @@ public class MakespringgreatagainApplication {
 	}
 
 }
+
+// TODO: 17.12.2022 implement simple Once-Per-Request filter
+// TODO: 17.12.2022 example with rest template, webClient and Feign

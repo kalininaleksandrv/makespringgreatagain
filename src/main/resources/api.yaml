@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: openapi-spring-example
+  description: sample for spring openapi implementation
+  contact:
+    email: just@mail.me
+  version: 0.1.0
+paths:
+  /v1/user/{userId}:
+    get:
+      tags:
+        - primary
+      summary: Get user by id
+      description: Getting the user by its ID
+      operationId: getUserById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: int
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Invalid ID supplied
+        404:
+          description: User not found
+        405:
+          description: Validation exception
+  /v1/user:
+    post:
+      tags:
+        - primary
+      summary: Add user
+      description: adding new user
+      operationId: addUser
+      requestBody:
+        description: Create a new user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        405:
+          description: Invalid input
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 100000
+        name:
+          type: string
+          example: john
+        address:
+          type: object
+          $ref: '#/components/schemas/Address'
+      xml:
+        name: user
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          example: 437 Lytton
+        zip:
+          type: string
+          example: 123456
+      xml:
+        name: address
